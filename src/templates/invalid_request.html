@@ -1,0 +1,84 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewreport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    </head>
+
+    <title>
+        Invalid Request - oh no!
+    </title>
+
+    <style>
+        .centerImage {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        div.centerText {
+            text-align: center;
+            list-style-position: inside;
+        }
+
+        .navBarSpacer {
+            padding-top: 10px;
+            padding-bottom: 10px
+        }
+    </style>
+
+    <body>
+        <h1>
+            <div class="centerText">
+                Invalid Request Entered
+            </div>
+            
+        </h1>
+
+        <p1>
+            <div class="centerText">
+                Oh no! You have entered an invalid request!
+            </div>            
+        </p1>
+
+        <p2>
+            <div class="centerText">
+                <br><b>There are 3 possible reasons you got here:</b>
+                <ul>
+                    <li>Your entry is not a valid entry, so our database and/or VirusTotal API cannot process it</li>
+                    <li>Your entry requires premium API access to VirusTotal, and we only offer the free access</li>
+                    <li>You have reached a query limit of 500 new searches for the day. Come back tomorrow!</li>
+                  </ul>
+            </div>            
+        </p2>
+
+        <p3>
+            <div class="centerText">
+                NOTE: If you entered a URL, a quick debugging fix is to remove the "www", "http://", or "https://" that is at the beginning of the URL. 
+                <br>Threat Detector® has a URL cleaning algorithm that sometimes doesn't work properly and results in a bad URL being scanned.
+            </div>            
+        </p3>
+
+        <div class="container-fluid">
+            <div class="navBarSpacer"></div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <form class="form-inline" action="{{ url_for('home') }}">
+                <button class="btn btn-danger center my-2 my-sm-0" type="submit">Back to Home</button>
+            </form>
+        </div>
+
+
+
+        <img src="../static/no_data.gif" class="centerImage">
+    </body>
+
+</html>

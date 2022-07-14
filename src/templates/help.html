@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Help - Threat Detector&#174</title>
+    <link rel="stylesheet" href="../static/help.css">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <nav id="navbar">
+        <header>
+            <h1>Help</h1>
+        </header>
+        <ul>
+            <li><a class="nav-link" href="#Navigation">Navigation</a></li>
+            <li><a class="nav-link" href="#Troubleshooting">Troubleshooting</a></li>
+            <li><a class="nav-link" href="#bugs">Known Bugs and Limitations</a></li>
+            <li><a class="nav-link" href=""></a></li>
+            <li><a class="nav-link" href="http://127.0.0.1:5000/">Return to Home</a></li>
+            <li><a class="nav-link" href=""></a></li>
+        </ul>
+    </nav>
+
+    <div id="main-doc" class="main">
+        <section id="Navigation" class="main-section">
+            <header>Navigation</header>
+            <p>Opening up the link will direct you to the homepage. Here, there is a search box to enter hashes and URLs to be scanned. Also there is an ABOUT button which describes information about Threat Detector ®. There is also a HELP button that includes
+                a description about how to use the website and all the features.</p>
+            <p>Entering a hash or URL redirects to a page that displays determining if the hash or URL is malicious or not. The page shows 3 tabs: number of vendors that flagged the hash/URL as malicious, metadata of the hash/URL, and the status of the hash/URL
+                being malicious or not:</p>
+
+        </section>
+
+        <section id="Troubleshooting" class="main-section">
+            <header>Troubleshooting</header>
+            <p>This guide helps you dealing with error messages and failures:</p>
+            <ul>
+                <li>Threat Detector® can produce a few error messages during operation if something has gone wrong with the service. All of these error messages are printed to in the terminal window containing the runtime for Threat Detector®.</li>
+                <li>Most of the error message pertain to the invalid requests that the user has entered; a system administrator does not have to deal with these, as Threat Detector® provides feedback to the user about the error.</li>
+                <li>Other error messages include fatal add and retrieve requests from the database and improper API calls to VirusTotal®. Improper API calls could be a result of a bad request on VirusTotal’s end, or it could be a query limit of 500 searches
+                    has been reached. To deal with improper API calls, restart the service. If the problem persists, a query limit error could be a result; waiting 24 hours fixes this issue.</li>
+                <li>If there are any failures with Threat Detector®, close the service and restart it. If issues and errors persist, reboot the server/device Threat Detector® is running on. If errors persist, check for hardware inconsistencies and issues
+                    of the device Threat Detector® is running on.</li>
+            </ul>
+        </section>
+
+        <section id="bugs" class="main-section">
+            <header>Known Bugs and Limitations</header>
+            <p>In the current version, Threat Detector contains a few bugs that are to be improved upon in future releases:</p>
+            <ul>
+                <li>
+                    The current query limit for searches is 500 queries a day, but the user may not know if they’ve reached a query limit since they are redirected to a page saying “Invalid Entry”. Currently, the code does not have a way of determining if
+                    a query limit has been reached. This may upset the user because the user may think they are entering an incorrect and may get frustrated with the service since it constantly gives an “Invalid Entry” response. The users may, then, complain
+                    to the system administrator about the issue, and the system administrator may try to solve the problem (i.e rebooting the service or the device) with no luck. Keep this in mind when an error that is not fixed with a reboot arises.
+                </li>
+                
+                <li>
+                    Some formatting bugs with button placement of detection page exist when the browser window is not maximized; these bugs exist in second_page_hash_malware_positive.html, second_page_hash_malware_negative.html, second_page_URL_malware_negative.html, 
+                    and second_page_URL_malware_negative.html as they pertain to the front-end HTML code. When browser is not maximized, the button layout for Detection, File Meta Data, and Malicious Status causes the Malicious Status button to be larger than the 
+                    Detection and File Meta Data buttons. Because of the unintuitive look and feel of the user interface these buttons create, this could cause confusion with the user and overall approval of the service could decrease.
+                </li>
+
+                <li>
+                    Another limitation with the current API Key being used from VirusTotal. Threat Detector® uses VirusTotal’s Free API key and not Premium API key, meaning Threat Detector® can’t scan every URL since some URLs require premium access to VirusTotal. 
+                    Again, there is a 500 query-limit for new searches per day, and an invalid response page is displayed if this limit is reached. This limitation is can cause confusion with the user and leave them frustrated with the service. The users may, then, 
+                    complain to the system administrator about the issue, and the system administrator may try to solve the problem (i.e rebooting the service or the device) with no luck. Keep this in mind when an error that is not fixed with a reboot arises 
+                </li>
+
+                <li>
+                    Another bug is with scanning URLs using VirusTotal’s API. Given the free API version, VirusTotal is very picky about what is receives from the user. Anything other than a domain name will result in VirusTotal sending no data to Threat Detector®. 
+                    This results in a false invalid request reading which redirects the user to the invalid request page even though they haven’t entered incorrect data. A Premium API Key most likely solves this problem. As of now, this can cause frustration among 
+                    the users that try to scan valid URLs, resulting in an overall disapproval of the service. A note is displayed to the user on the invalid request page, giving them options to troubleshoot their error.
+                </li>
+            </ul>
+        </section>
+
+
+
+
+        <section id="contact" class="main-section">
+            <header>Contact Us</header>
+            <p>
+                If you run into any issues, feel free to contact one of the developers via email: 
+                <li style="color:rgb(28, 51, 255)">mbiegel1@umbc.edu</li>
+            </p>
+            <p>
+                Our team of developers will diagnose your issue and respond promptly. Thank you!
+            </p>
+
+
+
+
+
+        </section>
+    </div>
+    <!-- partial -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</body>
+
+</html>

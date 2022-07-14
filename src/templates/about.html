@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About - Threat Detector&#174</title>
+    <link rel="stylesheet" href="../static/about.css">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <nav id="navbar">
+        <header>
+            <h1>ABOUT</h1>
+        </header>
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#Design">Design</a></li>
+            <li><a class="nav-link" href="#umar">Team members</a></li>
+            <li><a class="nav-link" href=""></a></li>
+            <li><a class="nav-link" href="http://127.0.0.1:5000/">Return to Home</a></li>
+            <li><a class="nav-link" href=""></a></li>
+        </ul>
+    </nav>
+
+    <div id="main-doc" class="main">
+        <section id="Introduction" class="main-section">
+            <header>Introduction</header>
+            <p>Welcome to Threat Detector®! This is an interactive and seamless virus hash and URL scanning service. 
+                A series of malware engines are used to scan the entry and determine the malicious status of the hash or URL. 
+                The brains of the service are linked with the VirusTotal API to scan the user’s entries. 
+                Features that the service provides are the ability to enter hashes and URLs for scanning, 
+                viewing the malicious status of a hash/URL, viewing the status of the vendors for each hash or URL, 
+                and viewing hash and URL meta data. API calls are made to scan the entered hash and URLs in order to provide a reliable analysis for the user’s benefit.</p>
+
+        </section>
+
+
+        <section id="Design" class="main-section">
+            <header>Design</header>
+            <p>
+                The design uses a flask back-end that displays to a Bootstrap HTML front-end and stores hash and url data in an SQLite3 database. 
+                The back-end has all functioanlity to get the required properties (sha256, md5, sha1, etc...) from the database
+                or API to display to the user. The VirusTotal API is called to get the results if the hash or URL has never been scanned before; otherwise, 
+                the results are pulled from the database. The back-end passes the results to the front-end to display to the user in an easy-to-read format.
+            </p>
+
+        </section>
+
+
+        <section id="Info" class="main-section">
+            <header>Different pages of Threat Detector®</header>
+            <p>
+                <br> Homepage: Interface output for the home screen of the application
+                <br> Invalid Request Page: Interface output for an invalid request
+                <br> Result Page: Interface and page displaying information about the entered hash or URL. SEe "Interpreting Displayed Information" 
+                        to understand what is being displayed.
+                <br> About Page: Interface and page for verison and description information about Threat Detector ® (the page you are on right now!).
+                <br> Help Page: Interface and page for user to seek help about how to use the Threat Detector ® site.
+            </p>
+
+        </section>
+
+        <section id="Interpreting" class="main-section">
+            <header>Interpreting Displayed Information</header>
+            <p>
+                After a user enters a hash or URL, a plethora of information is displayed. Upon clicking the "Scan" button, the user sees the 
+                number of vendors that flagged the entry as malicious, the user's entry, the malicious status, and the detection of individual vendor 
+                malware engines displayed under the "Detection" tab.
+                
+                <br><br>
+                <b>Detection Tab:</b> This tab shows the number of vendors that scanned the user's entry. Each vendor has either have a check mark indicating 
+                that the vendor flagged the entry as clean (not malicious), an "X" mark indicating the vendor flagged it as malicious, and a "?" indicating 
+                the vendor cannot scan the hash/URL. A "?" from a vendor does not mean you should panic; it just means that some vendors do not understand 
+                the type of entry submitted and so does not produce verdicts for it.
+                
+                <br><br>
+                <b>Metadata Tab:</b> There are two possible tab options depending on if the user enters a hash or URL. If a hash is entered, the user can see the size, 
+                MD5 hash, SHA256 hash, SHA1 Hash, and SSDEEP Hash under the "Hash Metadata" tab on the screen. If a URL is entered the user can see the domain's name, 
+                creation date, registrar, Forcepoint ThreatSeaker classification, Comodo Valkyrie Classification, Statvo Rank, and Majestic Rank under the "URL Metadata" 
+                tab on the screen.
+
+                <br><br>
+                <b>Malicious Status Result and Tab:</b> This tab displays whether the user's entry is malicious or not. There are three statuses the user can come across.
+                The "NEGATIVE" status means that no malware was detected whatsoever. The "POSITIVE" status means that of the vendors that scanned the entry, 25% or more of
+                the vendors flagged the entry as malicious. The "CAUTION" status means that less than 25% of the vendors flagged the entry as malicious; this status is more
+                likely to represent false positives, so it is left up to the user to determine if you deem it as malicious or not. Here are what the statuses look like:
+
+                <li style="color:rgb(0, 216, 0)">NEGATIVE</li>
+                <li style="color:rgb(255, 0, 0)">POSITIVE</li>
+                <li style="color:rgb(255, 196, 0)">CAUTION</li>
+
+            </p>
+
+        </section>
+
+
+
+        <section id="umar" class="main-section">
+            <header>Team Members</header>
+            <p>This Application page is designed by </p>
+
+            <ul>
+                <li>Mark Biegel</li>
+                <li>Tim Yingling</li>
+                <li>Clement Onoja</li>
+                <li>Biruk Yimer</li>
+                <li>Jenna Pasternak</li>
+                <li>Scott Boyd</li>
+            </ul>
+
+        </section>
+    </div>
+    <!-- partial -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</body>
+
+</html>
